@@ -1,0 +1,22 @@
+data:
+  audio_dir: 'data/audio/train' # will load all audio files from here
+  audio_extension: 'mp3' # only pick files with this extension
+  tabular_data: 'data/tabular_data.csv' # demographics, labels, anything else in tabular format
+
+  train_test_split_seed: 1 # seed for creating the validation split
+  val_size: 0.2 # either fraction or number of samples to keep in validation set
+  dataloader_num_workers: 12
+
+  pad_to_length: 14400 # circular pad all sequences to this length, will crop if it's shorter than original length
+
+  train_batch_size: 2
+  val_batch_size: 2
+  pin_memory: true
+
+model:
+  lr: 1e-3
+  conv_channels: 3 # number of channels for convolution blocks
+
+trainer:
+  max_epochs: 32
+  accelerator: 'gpu'
